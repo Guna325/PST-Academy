@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PST Academy - Mastering Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffebcc;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff9800;
+            border-radius: 5px;
+        }
+        button {
+            background: #ff5722;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #e64a19;
+        }
+        .section {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            color: #ff5722;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color:#ff5722;">📊 PST Academy</h1>
+        <h3>Mastering Statistics Through Personalized Coaching</h3>
+        
+        <div class="section">
+            <h2>About Us</h2>
+            <p>With 6 years of experience in teaching statistics, I have successfully guided multiple batches of intermediate and degree students. My approach focuses on session-based, customized learning tailored to each student's difficulty areas. I design the curriculum based on individual requirements and ensure effective communication of concepts, making statistics simpler and more engaging.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Why Choose Us? 🔥</h2>
+            <ul>
+                <li>✅ <span class="highlight">Personalized Learning:</span> Tailored sessions based on your needs.</li>
+                <li>✅ <span class="highlight">Concept Clarity:</span> Focus on understanding, not just memorization.</li>
+                <li>✅ <span class="highlight">Doubt Resolution:</span> Clear all your doubts in every session.</li>
+                <li>✅ <span class="highlight">Better Grades:</span> Improve your performance with expert guidance.</li>
+                <li>✅ <span class="highlight">Flexible Scheduling:</span> Choose online or offline classes.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>How We Teach? 🏆</h2>
+            <p>We offer both <span class="highlight">online</span> and <span class="highlight">offline</span> classes. For more details, contact us on WhatsApp: <strong>📞 7989765458</strong>.</p>
+        </div>
+        
+        <h3>🎉 Get <span class="highlight">25% Off</span> for Early Registration! 🎉</h3>
+        
+        <button onclick="document.getElementById('registrationForm').classList.remove('hidden'); this.style.display='none';">Register Now</button>
+    </div>
+    
+    <div class="container hidden" id="registrationForm">
+        <h2>📋 Register for Statistics Coaching</h2>
+        <form id="form">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="WhatsApp Phone Number" pattern="\d{10}" required>
+            <select id="course" required>
+                <option value="">Select Course</option>
+                <option value="Intermediate Statistics">Intermediate Statistics</option>
+                <option value="Degree Statistics">Degree Statistics</option>
+            </select>
+            <select id="tuitionType" required>
+                <option value="">Select Tuition Type</option>
+                <option value="Session Wise">Session Wise - ₹500 per session</option>
+                <option value="Weekly Session">Weekly Session - ₹2,000 (5 * ₹400)</option>
+                <option value="Monthly Session">Monthly Session - ₹7,000 (20 * ₹350)</option>
+            </select>
+            <select id="location" required>
+                <option value="">Select City</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chittoor">Chittoor</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Pune">Pune</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Hyderabad">Hyderabad</option>
+            </select>
+            <button type="submit">Submit Registration</button>
+        </form>
+        <p id="responseMessage" style="color: green; margin-top: 10px;"></p>
+    </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phone = document.getElementById('phone').value;
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+            document.getElementById('responseMessage').innerText = "✅ Registration successful! We will contact you shortly. For more details, reach out to us on WhatsApp: 7989765458.";
+            setTimeout(() => {
+                document.getElementById('registrationForm').classList.add('hidden');
+            }, 3000);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
